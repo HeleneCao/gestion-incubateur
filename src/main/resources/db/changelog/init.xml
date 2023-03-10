@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.19.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1678459180794-1" author="fethi (generated)">
+        <createTable tableName="assist">
+            <column name="is_present" type="BOOLEAN"/>
+            <column name="id_review" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_assist"/>
+            </column>
+            <column name="id_intern" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_assist"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-2" author="fethi (generated)">
+        <createTable tableName="formation">
+            <column name="id_formation" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_formation"/>
+            </column>
+            <column name="label" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="intern_id_intern" type="BIGINT"/>
+            <column name="status_label" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-3" author="fethi (generated)">
+        <createTable tableName="intern">
+            <column name="id_intern" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_intern"/>
+            </column>
+            <column name="first_name" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="archive" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="arrival_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="release_date" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-4" author="fethi (generated)">
+        <createTable tableName="intern_rate">
+            <column name="intern_id_intern" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rate_id_rate" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-5" author="fethi (generated)">
+        <createTable tableName="intern_skills">
+            <column name="intern_id_intern" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="skills_label" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-6" author="fethi (generated)">
+        <createTable tableName="rate">
+            <column name="id_rate" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_rate"/>
+            </column>
+            <column name="comment" type="VARCHAR(1000)"/>
+            <column name="note" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-7" author="fethi (generated)">
+        <createTable tableName="review">
+            <column name="id_review" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_review"/>
+            </column>
+            <column name="date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="VARCHAR(1000)"/>
+            <column name="team_id_team" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-8" author="fethi (generated)">
+        <createTable tableName="role">
+            <column name="name" type="VARCHAR(20)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_role"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-9" author="fethi (generated)">
+        <createTable tableName="skill">
+            <column name="label" type="VARCHAR(20)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_skill"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-10" author="fethi (generated)">
+        <createTable tableName="status">
+            <column name="label" type="VARCHAR(20)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_status"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-11" author="fethi (generated)">
+        <createTable tableName="supervisor">
+            <column name="id_supervisor" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_supervisor"/>
+            </column>
+            <column name="first_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="archive" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="role_name" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-12" author="fethi (generated)">
+        <createTable tableName="supervisor_skills">
+            <column name="supervisor_id_supervisor" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="skills_label" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-13" author="fethi (generated)">
+        <createTable tableName="team">
+            <column name="id_team" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_team"/>
+            </column>
+            <column name="name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="archive" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url_repository" type="VARCHAR(255)"/>
+            <column name="url_backlog" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-14" author="fethi (generated)">
+        <createTable tableName="team_list_intern">
+            <column name="team_id_team" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="list_intern_id_intern" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-15" author="fethi (generated)">
+        <createTable tableName="team_skills">
+            <column name="team_id_team" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="skills_label" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1678459180794-16" author="fethi (generated)">
+        <addUniqueConstraint columnNames="label" constraintName="uc_formation_label" tableName="formation"/>
+    </changeSet>
+    <changeSet id="1678459180794-17" author="fethi (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_intern_email" tableName="intern"/>
+    </changeSet>
+    <changeSet id="1678459180794-18" author="fethi (generated)">
+        <addUniqueConstraint columnNames="rate_id_rate" constraintName="uc_intern_rate_rate_id_rate"
+                             tableName="intern_rate"/>
+    </changeSet>
+    <changeSet id="1678459180794-19" author="fethi (generated)">
+        <addUniqueConstraint columnNames="skills_label" constraintName="uc_intern_skills_skills_label"
+                             tableName="intern_skills"/>
+    </changeSet>
+    <changeSet id="1678459180794-20" author="fethi (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_supervisor_email" tableName="supervisor"/>
+    </changeSet>
+    <changeSet id="1678459180794-21" author="fethi (generated)">
+        <addUniqueConstraint columnNames="skills_label" constraintName="uc_supervisor_skills_skills_label"
+                             tableName="supervisor_skills"/>
+    </changeSet>
+    <changeSet id="1678459180794-22" author="fethi (generated)">
+        <addUniqueConstraint columnNames="list_intern_id_intern"
+                             constraintName="uc_team_list_intern_listintern_id_intern" tableName="team_list_intern"/>
+    </changeSet>
+    <changeSet id="1678459180794-23" author="fethi (generated)">
+        <addUniqueConstraint columnNames="name" constraintName="uc_team_name" tableName="team"/>
+    </changeSet>
+    <changeSet id="1678459180794-24" author="fethi (generated)">
+        <addUniqueConstraint columnNames="skills_label" constraintName="uc_team_skills_skills_label"
+                             tableName="team_skills"/>
+    </changeSet>
+    <changeSet id="1678459180794-25" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="intern_id_intern" baseTableName="formation"
+                                 constraintName="FK_FORMATION_ON_INTERN_ID_INTERN" referencedColumnNames="id_intern"
+                                 referencedTableName="intern"/>
+    </changeSet>
+    <changeSet id="1678459180794-26" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="status_label" baseTableName="formation"
+                                 constraintName="FK_FORMATION_ON_STATUS_LABEL" referencedColumnNames="label"
+                                 referencedTableName="status"/>
+    </changeSet>
+    <changeSet id="1678459180794-27" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="team_id_team" baseTableName="review"
+                                 constraintName="FK_REVIEW_ON_TEAM_ID_TEAM" referencedColumnNames="id_team"
+                                 referencedTableName="team"/>
+    </changeSet>
+    <changeSet id="1678459180794-28" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="role_name" baseTableName="supervisor"
+                                 constraintName="FK_SUPERVISOR_ON_ROLE_NAME" referencedColumnNames="name"
+                                 referencedTableName="role"/>
+    </changeSet>
+    <changeSet id="1678459180794-29" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="intern_id_intern" baseTableName="intern_rate"
+                                 constraintName="fk_intrat_on_intern" referencedColumnNames="id_intern"
+                                 referencedTableName="intern"/>
+    </changeSet>
+    <changeSet id="1678459180794-30" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="rate_id_rate" baseTableName="intern_rate"
+                                 constraintName="fk_intrat_on_rate" referencedColumnNames="id_rate"
+                                 referencedTableName="rate"/>
+    </changeSet>
+    <changeSet id="1678459180794-31" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="intern_id_intern" baseTableName="intern_skills"
+                                 constraintName="fk_intski_on_intern" referencedColumnNames="id_intern"
+                                 referencedTableName="intern"/>
+    </changeSet>
+    <changeSet id="1678459180794-32" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="skills_label" baseTableName="intern_skills"
+                                 constraintName="fk_intski_on_skill" referencedColumnNames="label"
+                                 referencedTableName="skill"/>
+    </changeSet>
+    <changeSet id="1678459180794-33" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="skills_label" baseTableName="supervisor_skills"
+                                 constraintName="fk_supski_on_skill" referencedColumnNames="label"
+                                 referencedTableName="skill"/>
+    </changeSet>
+    <changeSet id="1678459180794-34" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="supervisor_id_supervisor" baseTableName="supervisor_skills"
+                                 constraintName="fk_supski_on_supervisor" referencedColumnNames="id_supervisor"
+                                 referencedTableName="supervisor"/>
+    </changeSet>
+    <changeSet id="1678459180794-35" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="list_intern_id_intern" baseTableName="team_list_intern"
+                                 constraintName="fk_tealisint_on_intern" referencedColumnNames="id_intern"
+                                 referencedTableName="intern"/>
+    </changeSet>
+    <changeSet id="1678459180794-36" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="team_id_team" baseTableName="team_list_intern"
+                                 constraintName="fk_tealisint_on_team" referencedColumnNames="id_team"
+                                 referencedTableName="team"/>
+    </changeSet>
+    <changeSet id="1678459180794-37" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="skills_label" baseTableName="team_skills"
+                                 constraintName="fk_teaski_on_skill" referencedColumnNames="label"
+                                 referencedTableName="skill"/>
+    </changeSet>
+    <changeSet id="1678459180794-38" author="fethi (generated)">
+        <addForeignKeyConstraint baseColumnNames="team_id_team" baseTableName="team_skills"
+                                 constraintName="fk_teaski_on_team" referencedColumnNames="id_team"
+                                 referencedTableName="team"/>
+    </changeSet>
+
+</databaseChangeLog>
