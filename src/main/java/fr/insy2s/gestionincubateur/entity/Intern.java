@@ -4,12 +4,10 @@ package fr.insy2s.gestionincubateur.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.Date;
 import java.util.List;
@@ -22,7 +20,8 @@ import java.util.List;
 public class Intern {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "intern_generator")
+    @SequenceGenerator(name="intern_generator", sequenceName = "intern_seq", allocationSize=1, initialValue = 1000)
     @Column(name = "id_intern")
     private Long id;
 

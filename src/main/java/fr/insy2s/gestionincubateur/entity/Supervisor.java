@@ -5,7 +5,6 @@ import fr.insy2s.gestionincubateur.annotation.Password;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +21,8 @@ public class Supervisor {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "supervisor_generator")
+    @SequenceGenerator(name="supervisor_generator", sequenceName = "supervisor_seq", allocationSize=1, initialValue = 1000)
     @Column(name = "id_supervisor")
     private Long id;
 

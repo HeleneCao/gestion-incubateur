@@ -19,7 +19,8 @@ import java.util.Date;
 public class Rate {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rate_generator")
+    @SequenceGenerator(name="rate_generator", sequenceName = "rate_seq", allocationSize=1, initialValue = 1000)
     @Column(name = "id_rate")
     private Long id;
 

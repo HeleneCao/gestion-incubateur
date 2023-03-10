@@ -2,7 +2,6 @@ package fr.insy2s.gestionincubateur.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +18,8 @@ import java.util.List;
 public class Team {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_generator")
+    @SequenceGenerator(name="team_generator", sequenceName = "team_seq", allocationSize=1, initialValue = 1000)
     @Column(name = "id_team")
     private Long id;
 

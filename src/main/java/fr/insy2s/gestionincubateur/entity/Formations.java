@@ -15,7 +15,8 @@ import lombok.NoArgsConstructor;
 public class Formations {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "formation_generator")
+    @SequenceGenerator(name="formation_generator", sequenceName = "formation_seq", allocationSize=1, initialValue = 1000)
     @Column(name = "id_formation")
     private Long id;
 
