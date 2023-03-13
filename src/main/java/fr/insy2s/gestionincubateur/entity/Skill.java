@@ -19,8 +19,7 @@ public class Skill {
 
     @Id
     @NotBlank(message = "label is required")
-    @NotNull(message = "label is required")
-    @Column(name = "label",nullable = false,length = 20,unique = true)
+    @Column(name = "label",nullable = false,length = 30,unique = true)
     private String label;
 
 

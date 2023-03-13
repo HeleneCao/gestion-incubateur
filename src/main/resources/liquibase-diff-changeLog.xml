@@ -79,7 +79,7 @@
             <column name="Intern_id_intern" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="skills_label" type="VARCHAR(30)">
+            <column name="skills_label" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -119,7 +119,7 @@
     </changeSet>
     <changeSet author="Charef (generated)" id="1678460270287-15">
         <createTable tableName="skill">
-            <column name="label" type="VARCHAR(30)">
+            <column name="label" type="VARCHAR(20)">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="skillPK"/>
             </column>
         </createTable>
@@ -157,7 +157,7 @@
             <column name="Supervisor_id_supervisor" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="skills_label" type="VARCHAR(30)">
+            <column name="skills_label" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -195,7 +195,7 @@
             <column name="Team_id_team" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="skills_label" type="VARCHAR(30)">
+            <column name="skills_label" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -277,14 +277,5 @@
     </changeSet>
     <changeSet author="Charef (generated)" id="1678460270287-47">
         <addForeignKeyConstraint baseColumnNames="skills_label" baseTableName="intern_skill" constraintName="FKrvlgbjtj2bsxyx8vq83ari350" deferrable="false" initiallyDeferred="false" referencedColumnNames="label" referencedTableName="skill" validate="true"/>
-    </changeSet>
-    <changeSet id="1678460270287-14-data" author="Charef">
-        <loadData tableName="role" file="db/data/role.csv" separator=","/>
-    </changeSet>
-    <changeSet id="1678460270287-16-data" author="Charef">
-        <loadData tableName="status" file="db/data/status.csv" separator=","/>
-    </changeSet>
-    <changeSet id="1678460270287-15-data" author="Charef">
-        <loadData tableName="skill" file="db/data/skill.csv" separator=","/>
     </changeSet>
 </databaseChangeLog>
